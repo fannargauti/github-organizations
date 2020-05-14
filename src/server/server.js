@@ -24,6 +24,30 @@ app.get('/:org/repos', cache.route(), (req, res) => {
     },
     (error, meta, body) => {
       console.log(error, meta, body);
+      if (error || meta.status !== 200) {
+        return res.status(400).send('Bad Request');
+      }
+
+      return res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/:org/:repo/contributors', cache.route(), (req, res) => {
+  const { org, repo } = req.params;
+  fetchUrl(
+    `${API_BASE_URL}/repos/${org}/${repo}/contributors`,
+    {
+      headers: {
+        accept: ACCEPT_HEADER_API_VERSION,
+        Authorization: `token ${GITHUB_TOKEN}`,
+      },
+    },
+    (error, meta, body) => {
+      console.log(error, meta, body);
+      if (error || meta.status !== 200) {
+        return res.status(400).send('Bad Request');
+      }
 
       return res.json(JSON.parse(body));
     }

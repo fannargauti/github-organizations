@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { getRepos } from './requests';
+import Repo from './Repo';
 import './App.css';
 
 class App extends Component {
-  state = { data: {}, inputValue: 'futurice' };
+  state = { repos: [], organization: 'futurice' };
 
   async componentDidMount() {
     const data = await getRepos('futurice');
@@ -11,18 +12,18 @@ class App extends Component {
   }
 
   handleChange = (e) => {
-    this.setState({ inputValue: e.target.value });
+    this.setState({ organization: e.target.value });
   };
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    const { inputValue } = this.state;
-    const data = await getRepos(inputValue);
-    this.setState({ data });
+    const { organization } = this.state;
+    const repos = await getRepos(organization);
+    this.setState({ repos });
   };
 
   render() {
-    const { data, inputValue } = this.state;
+    const { repos, organization } = this.state;
     return (
       <div className="App">
         <h1>Enter a organization to get started</h1>
@@ -31,11 +32,22 @@ class App extends Component {
             type="text"
             name="org"
             placeholder="futurice"
-            value={inputValue}
+            value={organization}
             onChange={(event) => this.handleChange(event)}
           ></input>
           <button type="submit">get repos</button>
         </form>
+        {repos && (
+          <div className="App__repos">
+            {repos.map((repo) => (
+              <Repo
+                key={repo.id}
+                organization={organization}
+                repo={repo}
+              ></Repo>
+            ))}
+          </div>
+        )}
       </div>
     );
   }

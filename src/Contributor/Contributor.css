@@ -1,0 +1,20 @@
+.Contributor {
+  margin: 10px;
+  height: 150px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 6px 6px 20px -12px rgba(0, 0, 0, 0.75);
+}
+.Contributor:hover {
+  outline: 1px solid tomato;
+  border-radius: 5px;
+  box-shadow: none;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+.Contributor__avatar {
+  height: 75px;
+  width: auto;
+}

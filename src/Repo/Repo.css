@@ -1,0 +1,38 @@
+.Repo {
+  margin: 12px;
+  min-height: 100px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 0px 30px -12px rgba(0, 0, 0, 0.75);
+  border-radius: 0px;
+  transition: all 0.3s ease;
+}
+.Repo:hover {
+  border-radius: 10px;
+  box-shadow: 0px 0px 60px -12px rgba(0, 0, 0, 0.75);
+  transition: all 0.3s ease;
+}
+.Repo__ownerImage {
+  height: 100px;
+  width: auto;
+}
+.Repo__main {
+  display: flex;
+}
+.Repo__contributorsToggle {
+  display: flex;
+  align-self: center;
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  color: rebeccapurple;
+  font: inherit;
+}
+.Repo__toggleArrow {
+  height: 20px;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+.Repo__toggleArrow-flip {
+  transform: rotate(180deg);
+}
