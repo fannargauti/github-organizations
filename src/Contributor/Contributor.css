@@ -5,16 +5,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-decoration: none;
   box-shadow: 6px 6px 20px -12px rgba(0, 0, 0, 0.75);
+}
+.Contributor-hidden {
+  display: none;
 }
 .Contributor:hover {
   outline: 1px solid tomato;
   border-radius: 5px;
   box-shadow: none;
-  transform: scale(1.05);
+  transform: scale(1.02);
   transition: all 0.3s ease;
 }
 .Contributor__avatar {
   height: 75px;
   width: auto;
+}
+.Contributor__name {
+  color: tomato;
+}
+.Contributor__fakeName {
+  width: 52px;
+  height: 20px;
+  margin: 20px 0;
+}
+.Contributor__fakeAvatar {
+  height: 75px;
+  width: 75px;
 }

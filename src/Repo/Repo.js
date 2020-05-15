@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import { getcontributors } from '../requests';
 import RepoIcon from '../RepoIcon';
-import Contributor from '../Contributor';
 import RepoDrawer from '../RepoDrawer';
 import { ReactComponent as Arrow } from './arrow.svg';
 import './Repo.css';
@@ -13,7 +12,15 @@ class Repo extends Component {
     showContributors: false,
     isLoading: false,
     hasFetched: false,
+    isVisible: false,
   };
+
+  componentDidMount() {
+    const { index } = this.props;
+    setTimeout(() => {
+      this.setState({ isVisible: true });
+    }, index * 100);
+  }
 
   async fetchContributors() {
     const { repo, organization } = this.props;
@@ -38,11 +45,17 @@ class Repo extends Component {
   }
 
   render() {
-    const { contributors, showContributors, isLoading } = this.state;
+    const {
+      contributors,
+      showContributors,
+      isLoading,
+      hasFetched,
+      isVisible,
+    } = this.state;
     const { repo } = this.props;
-    console.log(contributors);
+
     return (
-      <div className="Repo">
+      <div className={classNames('Repo', { 'Repo-visible': isVisible })}>
         <div className="Repo__main">
           <img
             className="Repo__ownerImage"
@@ -55,7 +68,7 @@ class Repo extends Component {
             className="Repo__contributorsToggle"
             onClick={() => this.toggleContributors()}
           >
-            toggle contributors
+            view contributors
             <Arrow
               className={classNames('Repo__toggleArrow', {
                 'Repo__toggleArrow-flip': showContributors,
@@ -63,11 +76,12 @@ class Repo extends Component {
             />
           </button>
         </div>
-        <RepoDrawer isVisible={showContributors} isLoading={isLoading}>
-          {contributors.map((contributor) => (
-            <Contributor contributor={contributor}></Contributor>
-          ))}
-        </RepoDrawer>
+        <RepoDrawer
+          isVisible={showContributors}
+          isLoading={isLoading}
+          hasFetched={hasFetched}
+          contributors={contributors}
+        ></RepoDrawer>
       </div>
     );
   }
