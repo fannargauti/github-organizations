@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import { getcontributors } from '../requests';
+import { getContributors } from '../requests';
 import RepoIcon from '../RepoIcon';
 import RepoDrawer from '../RepoDrawer';
 import { ReactComponent as Arrow } from './arrow.svg';
+import { ReactComponent as Fork } from './fork.svg';
+import { ReactComponent as Star } from './star.svg';
+import { ReactComponent as Watch } from './watch.svg';
 import './Repo.css';
 
 class Repo extends Component {
@@ -27,7 +30,7 @@ class Repo extends Component {
     const { name } = repo;
     this.setState({ showContributors: true, isLoading: true });
     // try catch?
-    const contributors = await getcontributors(organization, name);
+    const contributors = await getContributors(organization, name);
     this.setState({ contributors, isLoading: false, hasFetched: true });
   }
 
@@ -53,7 +56,7 @@ class Repo extends Component {
       isVisible,
     } = this.state;
     const { repo } = this.props;
-
+    console.log(repo);
     return (
       <div className={classNames('Repo', { 'Repo-visible': isVisible })}>
         <div className="Repo__main">
@@ -62,19 +65,33 @@ class Repo extends Component {
             alt={repo.owner.login}
             src={repo.owner.avatar_url}
           ></img>
-          {repo.name}
+          <h3>{repo.name}</h3>
           <RepoIcon language={repo.language}></RepoIcon>
-          <button
-            className="Repo__contributorsToggle"
-            onClick={() => this.toggleContributors()}
-          >
-            view contributors
-            <Arrow
-              className={classNames('Repo__toggleArrow', {
-                'Repo__toggleArrow-flip': showContributors,
-              })}
-            />
-          </button>
+          <div className="Repo__endContainer">
+            <div className="Repo__stats">
+              <span className="Repo__stat">
+                <Fork />:{repo.forks_count}
+              </span>
+              <span className="Repo__stat">
+                <Star />:{repo.stargazers_count}
+              </span>
+              <span className="Repo__stat">
+                <Watch />:{repo.watchers_count}
+              </span>
+            </div>
+
+            <button
+              className="Repo__contributorsToggle"
+              onClick={() => this.toggleContributors()}
+            >
+              view contributors
+              <Arrow
+                className={classNames('Repo__toggleArrow', {
+                  'Repo__toggleArrow-flip': showContributors,
+                })}
+              />
+            </button>
+          </div>
         </div>
         <RepoDrawer
           isVisible={showContributors}

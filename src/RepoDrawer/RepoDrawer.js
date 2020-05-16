@@ -16,9 +16,11 @@ class RepoDrawer extends Component {
       }, 1000);
     }
   }
+
   render() {
     const { isVisible, isLoading, contributors } = this.props;
     const { isFakeLoading } = this.state;
+    console.log(contributors);
     return (
       <div
         className={classNames('RepoDrawer', {

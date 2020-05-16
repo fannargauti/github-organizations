@@ -46,7 +46,7 @@ app.get('/:org/:repo/contributors', cache.route(), (req, res) => {
     (error, meta, body) => {
       console.log(error, meta, body);
       if (error || meta.status !== 200) {
-        return res.status(400).send('Bad Request');
+        return res.status(meta.status).send([]);
       }
 
       return res.json(JSON.parse(body));

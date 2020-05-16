@@ -4,21 +4,18 @@ import Shimmer from '../Shimmer';
 import './Contributor.css';
 
 class Contributor extends Component {
-  state = { hasFinishedAnimating: false };
+  state = { hasFinishedAnimating: true };
   componentDidUpdate(prevProps) {
     if (prevProps.isVisible && !this.props.isVisible) {
+      this.setState({
+        hasFinishedAnimating: false,
+      });
       // If we are hiding the contributors, wait for the drawer animation to finish before hiding
       setTimeout(() => {
         this.setState({
           hasFinishedAnimating: true,
         });
       }, 1000);
-    }
-    // if we are showing the drawer, reset the animation flag
-    if (!prevProps.isVisible && this.props.isVisible) {
-      this.setState({
-        hasFinishedAnimating: false,
-      });
     }
   }
   render() {
@@ -29,7 +26,6 @@ class Contributor extends Component {
     if (!isVisible && hasFinishedAnimating) {
       return null;
     }
-
     return (
       <>
         {isFake && (
