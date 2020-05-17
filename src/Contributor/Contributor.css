@@ -1,6 +1,6 @@
 .Contributor {
   margin: 10px;
-  height: 150px;
+  padding: 8px;
   width: 150px;
   display: flex;
   flex-direction: column;
@@ -23,6 +23,7 @@
   width: auto;
 }
 .Contributor__name {
+  margin: 12px;
   color: tomato;
 }
 .Contributor__fakeName {
@@ -33,4 +34,18 @@
 .Contributor__fakeAvatar {
   height: 75px;
   width: 75px;
+}
+.Contributor__rank {
+  width: 100%;
+  padding: 4px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: bold;
+  color: #acacac;
+  text-align: left;
+}
+.Contributor__progressBar {
+  height: 10px;
+  align-self: flex-start;
+  background-color: #009f77;
 }

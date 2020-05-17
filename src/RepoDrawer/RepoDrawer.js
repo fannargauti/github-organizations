@@ -20,7 +20,6 @@ class RepoDrawer extends Component {
   render() {
     const { isVisible, isLoading, contributors } = this.props;
     const { isFakeLoading } = this.state;
-    console.log(contributors);
     return (
       <div
         className={classNames('RepoDrawer', {
@@ -36,10 +35,11 @@ class RepoDrawer extends Component {
               isFake
             ></Contributor>
           ))}
-        {contributors.map((contributor) => (
+        {contributors.map((contributor, index) => (
           // sort by contributions?
           <Contributor
             key={contributor.id}
+            index={index}
             isLoading={isLoading || isFakeLoading}
             isVisible={isVisible}
             contributor={contributor}

@@ -1,62 +1,73 @@
 .Repo {
   margin: 12px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   min-height: 100px;
-  width: 100%;
+  min-width: 100%;
   background-color: #fff;
   box-shadow: 0px 0px 30px -12px rgba(0, 0, 0, 0.75);
   border-radius: 0px;
   opacity: 0;
   transition: all 0.3s ease;
 }
-.Repo:hover {
-  border-radius: 10px;
-  box-shadow: 0px 0px 60px -12px rgba(0, 0, 0, 0.75);
-  transition: all 0.3s ease;
-}
 .Repo-visible {
   opacity: 1;
 }
 .Repo__ownerImage {
-  height: 100px;
-  width: auto;
+  max-height: 30px;
   padding: 12px;
+}
+.Repo__url {
+  font-size: 16px;
+  font-weight: bold;
+  color: inherit;
+  text-decoration: none;
 }
 .Repo__main {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 .Repo__stats {
   color: #4b79a0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 .Repo__stat {
   display: flex;
   align-items: center;
   padding: 2px;
-  font-size: 20px;
+  font-size: 14px;
 }
 .Repo__stat > svg {
   width: 20px;
   height: 20px;
+  padding: 0 2px;
 }
 .Repo__endContainer {
+  width: 230px;
+  height: 80%;
+  margin-left: auto;
+  padding-right: 4px;
   display: flex;
   align-items: center;
-  margin-left: auto;
-  width: 30%;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 .Repo__contributorsToggle {
   display: flex;
-  margin: 0 10px 0 auto;
-  padding: 6px 10px;
+  margin: 0 0 0 auto;
+  padding: 3px 6px;
   border: 1px solid #4b79a0;
   border-radius: 50px;
   color: #4b79a0;
   font: inherit;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   cursor: pointer;
+  background: none;
+  white-space: nowrap;
 }
 .Repo__toggleArrow {
   height: 20px;
@@ -69,4 +80,38 @@
 }
 .Repo__toggleArrow-flip {
   transform: rotate(180deg);
+}
+
+@media screen and (min-width: 900px) {
+  .Repo__stats {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .Repo__ownerImage {
+    max-height: 100px;
+  }
+  .Repo__url {
+    font-size: 24px;
+  }
+  .Repo__contributorsToggle {
+    font-size: 18px;
+    padding: 6px 10px;
+  }
+  .Repo__toggleArrow {
+    height: 20px;
+  }
+  .Repo__endContainer {
+    height: auto;
+    width: 320px;
+    padding-right: 10px;
+  }
+  .Repo__stats {
+    flex-direction: column;
+  }
+  .Repo__stat {
+    font-size: 16px;
+  }
+  .Repo__stat > svg {
+    padding: 0 4px;
+  }
 }

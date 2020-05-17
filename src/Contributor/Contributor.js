@@ -19,13 +19,20 @@ class Contributor extends Component {
     }
   }
   render() {
-    const { contributor = {}, isLoading, isFake, isVisible } = this.props;
+    const {
+      contributor = {},
+      index,
+      isLoading,
+      isFake,
+      isVisible,
+    } = this.props;
     const { hasFinishedAnimating } = this.state;
     const { login = '', avatar_url = '', html_url = '' } = contributor;
 
     if (!isVisible && hasFinishedAnimating) {
       return null;
     }
+    console.log(contributor, contributor.contributionsPercentage);
     return (
       <>
         {isFake && (
@@ -40,6 +47,11 @@ class Contributor extends Component {
             'Contributor-hidden': isLoading,
           })}
         >
+          <p className="Contributor__rank">{`#${index + 1}`}</p>
+          <div
+            className="Contributor__progressBar"
+            style={{ width: `${contributor.contributionsPercentage}%` }}
+          />
           <h4 className="Contributor__name">{login}</h4>
           <img
             className="Contributor__avatar"

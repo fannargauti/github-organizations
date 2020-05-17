@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import './Shimmer.css';
 
-class Shimmer extends Component {
-  render() {
-    const { className } = this.props;
-    return <div className={classNames('Shimmer', className)}></div>;
-  }
-}
+const Shimmer = ({ className }) => (
+  <div className={classNames('Shimmer', className)} />
+);
 
 export default Shimmer;

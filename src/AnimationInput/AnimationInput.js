@@ -7,8 +7,11 @@ class AnimationInput extends Component {
     'pied piper',
     'facebook',
     'spotify',
-    'dohop',
     'futurice',
+    'uber',
+    'netflix',
+    'prettier',
+    'basecamp',
   ];
   state = {
     placeholder: '',
@@ -38,7 +41,7 @@ class AnimationInput extends Component {
       placeholder === this.placeholders[placeholderIndex] ? 500 : 30;
     const animationDelay = isReverse
       ? reverseAnimationDelay
-      : Math.floor(Math.random() * (200 - 70) + 70);
+      : Math.floor(Math.random() * (300 - 100) + 100);
 
     setTimeout(() => {
       this.setState((prevState) => {

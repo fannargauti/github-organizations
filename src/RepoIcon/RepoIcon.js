@@ -13,6 +13,8 @@ class RepoIcon extends Component {
         return `${PUBLIC_URL}/icons/python.png`;
       case 'CSS':
         return `${PUBLIC_URL}/icons/css.svg`;
+      case 'Ruby':
+        return `${PUBLIC_URL}/icons/ruby.png`;
       default:
         break;
     }
@@ -21,7 +23,7 @@ class RepoIcon extends Component {
     const { language } = this.props;
     const src = this.getRepoIconSrc(language);
     if (!src) {
-      return <span>{language}</span>;
+      return <span className="RepoIcon__fallback">{language}</span>;
     }
     return <img alt={language} className="RepoIcon" src={src}></img>;
   }

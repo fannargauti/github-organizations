@@ -6,7 +6,6 @@ import RepoDrawer from '../RepoDrawer';
 import { ReactComponent as Arrow } from './arrow.svg';
 import { ReactComponent as Fork } from './fork.svg';
 import { ReactComponent as Star } from './star.svg';
-import { ReactComponent as Watch } from './watch.svg';
 import './Repo.css';
 
 class Repo extends Component {
@@ -56,7 +55,6 @@ class Repo extends Component {
       isVisible,
     } = this.state;
     const { repo } = this.props;
-    console.log(repo);
     return (
       <div className={classNames('Repo', { 'Repo-visible': isVisible })}>
         <div className="Repo__main">
@@ -65,21 +63,19 @@ class Repo extends Component {
             alt={repo.owner.login}
             src={repo.owner.avatar_url}
           ></img>
-          <h3>{repo.name}</h3>
-          <RepoIcon language={repo.language}></RepoIcon>
+          <a className="Repo__url" href={repo.html_url}>
+            {repo.name}
+          </a>
           <div className="Repo__endContainer">
             <div className="Repo__stats">
+              <RepoIcon language={repo.language}></RepoIcon>
               <span className="Repo__stat">
-                <Fork />:{repo.forks_count}
+                <Fork /> {repo.forks_count}
               </span>
               <span className="Repo__stat">
-                <Star />:{repo.stargazers_count}
-              </span>
-              <span className="Repo__stat">
-                <Watch />:{repo.watchers_count}
+                <Star /> {repo.stargazers_count}
               </span>
             </div>
-
             <button
               className="Repo__contributorsToggle"
               onClick={() => this.toggleContributors()}

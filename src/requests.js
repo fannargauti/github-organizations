@@ -3,8 +3,9 @@ import axios from 'axios';
 const API_SERVER_URL = process.env.SERVER_URL || 'http://localhost:4000';
 
 /**
- *
- * @param {String} org
+ * Requests repositories for a given organization
+ * @param {String} org the organization to fetch repositories for
+ * @returns {Object} an object that contains an array of repositories and an error message(if relevant)
  */
 export async function getRepos(org) {
   try {
@@ -18,7 +19,9 @@ export async function getRepos(org) {
 
 /**
  *
- * @param {String} org
+ * @param {String} org the relevant organization that owns the repository
+ * @param {String} repo the repository to fetch contributors for
+ * @returns {Array} an array of contributors where each contributor is an object
  */
 export async function getContributors(org, repo) {
   try {
@@ -29,6 +32,6 @@ export async function getContributors(org, repo) {
     return data;
   } catch (error) {
     alert('Could not get contributors');
-    return { data: [] };
+    return [];
   }
 }

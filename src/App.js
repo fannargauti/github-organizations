@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import { getRepos } from './requests';
 import Repo from './Repo';
 import AnimationInput from './AnimationInput';
@@ -9,11 +10,23 @@ class App extends Component {
     repos: [],
     error: '',
     organization: '',
+    headerAnimationFinished: false,
+    formAnimationFinished: false,
   };
 
-  async componentDidMount() {
-    const data = await getRepos('futurice');
-    this.setState({ data });
+  stateAnimations = [
+    { name: 'headerAnimationFinished', delay: 600 },
+    { name: 'formAnimationFinished', delay: 1000 },
+  ];
+
+  componentDidMount() {
+    this.stateAnimations.forEach((animation) =>
+      setTimeout(() => {
+        let newState = {};
+        newState[animation.name] = true;
+        this.setState(newState);
+      }, animation.delay)
+    );
   }
 
   handleChange = (e) => {
@@ -35,13 +48,29 @@ class App extends Component {
   };
 
   render() {
-    const { repos, error, organization } = this.state;
-    console.log(repos);
+    const {
+      repos,
+      error,
+      organization,
+      headerAnimationFinished,
+      formAnimationFinished,
+    } = this.state;
     return (
       <div className="App">
         <div className="App__formContainer">
-          <h1 className="App__header">Enter a GitHub organization</h1>
-          <form className="App__form" onSubmit={this.handleSubmit}>
+          <h1
+            className={classNames('App__header', {
+              'App__header-visible': headerAnimationFinished,
+            })}
+          >
+            Enter a GitHub organization
+          </h1>
+          <form
+            className={classNames('App__form', {
+              'App__form-visible': formAnimationFinished,
+            })}
+            onSubmit={this.handleSubmit}
+          >
             <AnimationInput value={organization} onChange={this.handleChange} />
             <button className="App__button" type="submit">
               let's go

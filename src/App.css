@@ -35,14 +35,24 @@ body {
   width: 100%;
 }
 .App__header {
+  opacity: 0;
   color: #fff;
+  font-size: 24px;
+}
+.App__header-visible {
+  opacity: 1;
+  transition: all 1s ease;
 }
 .App__form {
-  width: 50%;
+  opacity: 0;
+  width: 75%;
   display: flex;
   flex-direction: column;
 }
-
+.App__form-visible {
+  opacity: 1;
+  transition: all 1s ease;
+}
 .App__button {
   margin: 8px 0;
   height: 60px;
@@ -63,9 +73,34 @@ body {
 }
 .App__repos {
   margin: 0 auto;
-  width: 75%;
+  width: 90%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+
+@media screen and (min-width: 500px) {
+  .App__header {
+    font-size: 32px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .App__form {
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .App__repos {
+    margin: 0 auto;
+    width: 75%;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .App__form {
+    width: 50%;
+  }
 }

@@ -1,4 +1,8 @@
 .RepoIcon {
-  height: 20px;
-  width: auto;
+  width: 20px;
+  height: auto;
+  padding: 8px;
+}
+.RepoIcon__fallback {
+  padding: 8px;
 }
