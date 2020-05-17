@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import Contributor from '../Contributor';
 import './RepoDrawer.css';
 
@@ -36,7 +37,6 @@ class RepoDrawer extends Component {
             ></Contributor>
           ))}
         {contributors.map((contributor, index) => (
-          // sort by contributions?
           <Contributor
             key={contributor.id}
             index={index}
@@ -49,5 +49,11 @@ class RepoDrawer extends Component {
     );
   }
 }
+
+RepoDrawer.propTypes = {
+  isVisible: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  contributors: PropTypes.array.isRequired,
+};
 
 export default RepoDrawer;

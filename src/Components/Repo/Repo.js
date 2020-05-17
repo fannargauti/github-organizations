@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import { getContributors } from '../requests';
+import PropTypes from 'prop-types';
+import { getContributors } from '../../utils/requests';
 import RepoIcon from '../RepoIcon';
 import RepoDrawer from '../RepoDrawer';
 import { ReactComponent as Arrow } from './arrow.svg';
@@ -28,7 +29,6 @@ class Repo extends Component {
     const { repo, organization } = this.props;
     const { name } = repo;
     this.setState({ showContributors: true, isLoading: true });
-    // try catch?
     const contributors = await getContributors(organization, name);
     this.setState({ contributors, isLoading: false, hasFetched: true });
   }
@@ -55,6 +55,7 @@ class Repo extends Component {
       isVisible,
     } = this.state;
     const { repo } = this.props;
+
     return (
       <div className={classNames('Repo', { 'Repo-visible': isVisible })}>
         <div className="Repo__main">
@@ -99,5 +100,11 @@ class Repo extends Component {
     );
   }
 }
+
+Repo.propTypes = {
+  repo: PropTypes.object.isRequired,
+  organization: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
+};
 
 export default Repo;

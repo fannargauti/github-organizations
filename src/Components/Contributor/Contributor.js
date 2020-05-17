@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import Shimmer from '../Shimmer';
 import './Contributor.css';
 
 class Contributor extends Component {
   state = { hasFinishedAnimating: true };
+
   componentDidUpdate(prevProps) {
     if (prevProps.isVisible && !this.props.isVisible) {
       this.setState({
@@ -19,20 +21,14 @@ class Contributor extends Component {
     }
   }
   render() {
-    const {
-      contributor = {},
-      index,
-      isLoading,
-      isFake,
-      isVisible,
-    } = this.props;
+    const { contributor, index, isLoading, isFake, isVisible } = this.props;
     const { hasFinishedAnimating } = this.state;
-    const { login = '', avatar_url = '', html_url = '' } = contributor;
+    const { login, avatar_url, html_url } = contributor;
 
     if (!isVisible && hasFinishedAnimating) {
       return null;
     }
-    console.log(contributor, contributor.contributionsPercentage);
+
     return (
       <>
         {isFake && (
@@ -63,5 +59,21 @@ class Contributor extends Component {
     );
   }
 }
+
+Contributor.defaultProps = {
+  isFake: false,
+  isVisible: false,
+  isLoading: false,
+  contributor: { login: '', avatar_url: '', html_url: '' },
+  index: 0,
+};
+
+Contributor.propTypes = {
+  contributor: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  isFake: PropTypes.bool.isRequired,
+  isVisible: PropTypes.bool.isRequired,
+};
 
 export default Contributor;

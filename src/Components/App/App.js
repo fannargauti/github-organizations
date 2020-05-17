@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import { getRepos } from './requests';
-import Repo from './Repo';
-import AnimationInput from './AnimationInput';
+import { getRepos } from '../../utils/requests';
+import Repo from '../Repo';
+import AnimationInput from '../AnimationInput';
 import './App.css';
 
 class App extends Component {
