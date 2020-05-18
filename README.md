@@ -1,4 +1,6 @@
 # GitHub organizations
+![May-18-2020 09-36-22](https://user-images.githubusercontent.com/19215111/82196344-db323200-98f9-11ea-8b6a-d6fcd01b4c0b.gif)
+
 
 Search GitHub organizations and view their repositories in a breeze 🕵️‍♂️
 
