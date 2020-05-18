@@ -18,7 +18,7 @@ Using [Homebrew](https://brew.sh/) to install the dependencies is helpful, but i
 You will need [node](https://nodejs.org/en/), [redis](https://redis.io/) and [git](https://git-scm.com/) if you do not already have them installed.
 
 ```
-brew install node redis git
+$ brew install node redis git
 ```
 
 ### Installing
