@@ -8,7 +8,7 @@ const fetchUrl = require('fetch').fetchUrl;
 function fetchWithAuth(url, callback) {
   // Default github api version is v3 but github still recommends an explicit version to be specified.
   const ACCEPT_HEADER_API_VERSION = 'application/vnd.github.v3+json';
-  const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+  const GITHUB_TOKEN = process.env.GITHUB_TOKEN || '';
   const headers = {
     accept: ACCEPT_HEADER_API_VERSION,
     Authorization: `token ${GITHUB_TOKEN}`,
