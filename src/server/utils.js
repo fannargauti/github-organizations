@@ -11,7 +11,7 @@ function fetchWithAuth(url, callback) {
   const GITHUB_TOKEN = process.env.GITHUB_TOKEN || '';
   const headers = {
     accept: ACCEPT_HEADER_API_VERSION,
-    Authorization: `token ${GITHUB_TOKEN}`,
+    Authorization: GITHUB_TOKEN ? `token ${GITHUB_TOKEN}` : '',
   };
   fetchUrl(url, { headers }, callback);
 }

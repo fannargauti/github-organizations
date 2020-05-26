@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const cache = require('express-redis-cache')();
+const cache = require('express-redis-cache')({ expire: 60 * 2 }); // make cache expire in two minutes
 const dotenv = require('dotenv');
 const utils = require('./utils');
 dotenv.config();

@@ -1,6 +1,6 @@
 # GitHub organizations
-![May-18-2020 09-36-22](https://user-images.githubusercontent.com/19215111/82196344-db323200-98f9-11ea-8b6a-d6fcd01b4c0b.gif)
 
+![May-18-2020 09-36-22](https://user-images.githubusercontent.com/19215111/82196344-db323200-98f9-11ea-8b6a-d6fcd01b4c0b.gif)
 
 Search GitHub organizations and view their repositories in a breeze 🕵️‍♂️
 
@@ -43,6 +43,7 @@ $ npm install
 
 GitHub's API has a low rate limit for non-authorized requests, so it's recommended to create a `.env` file with a GitHub token.
 To create a GitHub token, follow [these GitHub instructions](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)
+
 Note that you do not need to grant any permissions for this token since it is only used for authorization in this application.
 
 When you have created your toke, create a `.env` file in the root of the project and paste your token into an environment variable like so:
@@ -86,6 +87,7 @@ and follow the GUI instructions.
 ## Deployment
 
 TODO: deploy the application and update readme with instructions on how it's done
+
 Build can be created with:
 
 ```
