@@ -6,7 +6,7 @@ Search GitHub organizations and view their repositories in a breeze 🕵️‍�
 
 Explore repositories and their contributors in a quick, responsive and beautiful way 💅
 
-[View the current version on GitHub pages](https://fannargauti.github.io/github-organizations/)
+[View the current version on GitHub pages](https://fannargauti.github.io/github-organizations/)(Backend deployment still WIP, so not working at the moment.)
 
 ## Getting Started
 
