@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/github-organizations/static/css/main.85fdbc5e.chunk.css",
+    "main.js": "/github-organizations/static/js/main.c0398b9c.chunk.js",
+    "main.js.map": "/github-organizations/static/js/main.c0398b9c.chunk.js.map",
+    "runtime-main.js": "/github-organizations/static/js/runtime-main.84d4bf3c.js",
+    "runtime-main.js.map": "/github-organizations/static/js/runtime-main.84d4bf3c.js.map",
+    "static/js/2.ff62a8a6.chunk.js": "/github-organizations/static/js/2.ff62a8a6.chunk.js",
+    "static/js/2.ff62a8a6.chunk.js.map": "/github-organizations/static/js/2.ff62a8a6.chunk.js.map",
+    "index.html": "/github-organizations/index.html",
+    "precache-manifest.2c87854de4aeecb127bb982504d9d18b.js": "/github-organizations/precache-manifest.2c87854de4aeecb127bb982504d9d18b.js",
+    "service-worker.js": "/github-organizations/service-worker.js",
+    "static/css/main.85fdbc5e.chunk.css.map": "/github-organizations/static/css/main.85fdbc5e.chunk.css.map",
+    "static/js/2.ff62a8a6.chunk.js.LICENSE.txt": "/github-organizations/static/js/2.ff62a8a6.chunk.js.LICENSE.txt",
+    "static/media/arrow.24eda302.svg": "/github-organizations/static/media/arrow.24eda302.svg",
+    "static/media/fork.d25d9fd1.svg": "/github-organizations/static/media/fork.d25d9fd1.svg",
+    "static/media/star.2c56ed7a.svg": "/github-organizations/static/media/star.2c56ed7a.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.84d4bf3c.js",
+    "static/js/2.ff62a8a6.chunk.js",
+    "static/css/main.85fdbc5e.chunk.css",
+    "static/js/main.c0398b9c.chunk.js"
+  ]
+}
