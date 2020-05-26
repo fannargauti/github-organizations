@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const cache = require('express-redis-cache')({ expire: 60 * 2 }); // make cache expire in two minutes
 const dotenv = require('dotenv');
 const utils = require('./utils');
@@ -41,6 +42,10 @@ app.get('/:org/:repo/contributors', cache.route(), (req, res, next) => {
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Something broke!');
+});
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 const PORT = process.env.PORT || 4000;
