@@ -6,6 +6,8 @@ Search GitHub organizations and view their repositories in a breeze 🕵️‍�
 
 Explore repositories and their contributors in a quick, responsive and beautiful way 💅
 
+[View the current version on GitHub pages](https://fannargauti.github.io/github-organizations/)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -86,12 +88,10 @@ and follow the GUI instructions.
 
 ## Deployment
 
-TODO: deploy the application and update readme with instructions on how it's done
-
-Build can be created with:
+To deploy to GitHub pages, run:
 
 ```
-$ npm run build
+$ npm run deploy
 ```
 
 ## Built With
