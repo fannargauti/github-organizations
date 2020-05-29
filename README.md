@@ -54,6 +54,12 @@ When you have created your toke, create a `.env` file in the root of the project
 GITHUB_TOKEN=$YOUR_GITHUB_TOKEN
 ```
 
+Run a redis server for caching on the default port:
+
+```
+$ redis-server
+```
+
 Start the development server:
 
 ```
@@ -64,12 +70,6 @@ Start the application's client:
 
 ```
 $ npm start
-```
-
-Run a redis server for caching on the default port:
-
-```
-$ redis-server
 ```
 
 You should now be able to view the application in your browser via http://localhost:3000/
