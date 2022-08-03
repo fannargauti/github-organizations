@@ -1,30 +1,31 @@
-const express = require('express');
-const cors = require('cors');
-const path = require('path');
-const cache = require('express-redis-cache')({ expire: 60 * 2 }); // make cache expire in two minutes
-const dotenv = require('dotenv');
-const utils = require('./utils');
+const express = require("express");
+const cors = require("cors");
+const path = require("path");
+const dotenv = require("dotenv");
+const utils = require("./utils");
 dotenv.config();
 
-const API_BASE_URL = 'https://api.github.com';
+const API_BASE_URL = "https://api.github.com";
 
 const app = express();
 app.use(cors());
 
-app.get('/:org/repos', cache.route(), (req, res, next) => {
+app.get("/:org/repos", (req, res, next) => {
   const { org } = req.params;
+
   utils.fetchWithAuth(
     `${API_BASE_URL}/orgs/${org}/repos`,
     (error, meta, body) => {
       if (error || meta.status !== 200) {
         return next(error, req, res, next);
       }
+      res.setHeader("Cache-Control", "s-max-age=10000, stale-while-revalidate");
       return res.json(JSON.parse(body));
     }
   );
 });
 
-app.get('/:org/:repo/contributors', cache.route(), (req, res, next) => {
+app.get("/:org/:repo/contributors", (req, res, next) => {
   const { org, repo } = req.params;
   utils.fetchWithAuth(
     `${API_BASE_URL}/repos/${org}/${repo}/contributors`,
@@ -34,6 +35,7 @@ app.get('/:org/:repo/contributors', cache.route(), (req, res, next) => {
       }
       const parsedBody = JSON.parse(body);
       const contributors = utils.processContributors(parsedBody);
+      res.setHeader("Cache-Control", "s-max-age=10000, stale-while-revalidate");
       return res.json(contributors);
     }
   );
@@ -41,11 +43,7 @@ app.get('/:org/:repo/contributors', cache.route(), (req, res, next) => {
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).send('Something broke!');
-});
-
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.status(500).send("Something broke!");
 });
 
 const PORT = process.env.PORT || 4000;
