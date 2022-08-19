@@ -6,7 +6,7 @@ Search GitHub organizations and view their repositories in a breeze 🕵️‍�
 
 Explore repositories and their contributors in a quick, responsive and beautiful way 💅
 
-[View the current version](github-organizations.vercel.app)
+[View the current version](https://github-organizations.vercel.app)
 
 ## Getting Started
 
