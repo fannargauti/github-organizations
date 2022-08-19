@@ -6,7 +6,7 @@ Search GitHub organizations and view their repositories in a breeze 🕵️‍�
 
 Explore repositories and their contributors in a quick, responsive and beautiful way 💅
 
-[View the current version on GitHub pages](https://fannargauti.github.io/github-organizations/)(Backend deployment still WIP, so not working at the moment.)
+[View the current version](github-organizations.vercel.app)
 
 ## Getting Started
 
@@ -17,10 +17,10 @@ These instructions will get you a copy of the project up and running on your loc
 This guide assumes that you are running on macOS.
 Using [Homebrew](https://brew.sh/) to install the dependencies is helpful, but if you do not have it, you can use alternative methods provided by the relevant package.
 
-You will need [node](https://nodejs.org/en/), [redis](https://redis.io/) and [git](https://git-scm.com/) if you do not already have them installed.
+You will need [node](https://nodejs.org/en/) and [git](https://git-scm.com/) if you do not already have them installed.
 
 ```
-$ brew install node redis git
+$ brew install node git
 ```
 
 ### Installing
@@ -52,12 +52,6 @@ When you have created your toke, create a `.env` file in the root of the project
 
 ```
 GITHUB_TOKEN=$YOUR_GITHUB_TOKEN
-```
-
-Run a redis server for caching on the default port:
-
-```
-$ redis-server
 ```
 
 Start the development server:
