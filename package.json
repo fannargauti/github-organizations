@@ -27,9 +27,7 @@
     "start-dev-server": "nodemon api/index.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "env-cmd -f .env.staging npm run build",
-    "deploy": "gh-pages -b gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"

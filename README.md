@@ -86,14 +86,6 @@ $ npm test
 
 and follow the GUI instructions.
 
-## Deployment
-
-To deploy to GitHub pages, run:
-
-```
-$ npm run deploy
-```
-
 ## Built With
 
 - [React](https://reactjs.org/) - The web framework used
